@@ -37,13 +37,6 @@ RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
                 viewModel.readAllData
 
             }
-
         }
-
-
     }
-
-
-
-
 }
