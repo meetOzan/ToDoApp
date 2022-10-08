@@ -1,20 +1,21 @@
 package com.meetozan.todoapp.data
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
 interface ToDoDao {
     @Query("SELECT * FROM todo")
-    fun getALl(): List<ToDo>
+    fun getALl(): LiveData<List<ToDo>>
 
     @Query("SELECT * FROM todo WHERE is_done LIKE 1")
-    fun getDone(): List<ToDo>
+    fun getDone(): LiveData<List<ToDo>>
 
     @Query("SELECT * FROM todo WHERE is_done LIKE 0")
-    fun getUndone(): List<ToDo>
+    fun getUndone(): LiveData<List<ToDo>>
 
     @Query("SELECT * FROM todo ORDER BY todo_level ASC")
-    fun getByLevel() : List<ToDo>
+    fun getByLevel() : LiveData<List<ToDo>>
 
     @Insert
     fun insert(vararg toDo: ToDo)

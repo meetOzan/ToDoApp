@@ -1,7 +1,8 @@
-package com.meetozan.todoapp.ui.todo
+package com.meetozan.todoapp.ui.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.meetozan.todoapp.data.ToDo
 import com.meetozan.todoapp.data.ToDoDatabase
@@ -11,13 +12,11 @@ import kotlinx.coroutines.launch
 
 class ToDoViewModel(application: Application) : AndroidViewModel(application) {
 
-    val readAllData : List<ToDo>
+    val readAllData : LiveData<List<ToDo>>
     private val repository : ToDoRepository
 
     init {
-        val toDoDao = ToDoDatabase.getToDoDatabase(
-            application
-        )?.toDoDao()
+        val toDoDao = ToDoDatabase.getToDoDatabase(application)?.toDoDao()
         repository = ToDoRepository(toDoDao!!)
         readAllData = repository.readAllData
     }

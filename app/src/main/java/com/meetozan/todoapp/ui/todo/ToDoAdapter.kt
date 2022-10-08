@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.meetozan.todoapp.data.ToDo
 import com.meetozan.todoapp.databinding.TodoCardBinding
+import com.meetozan.todoapp.ui.viewmodels.ToDoViewModel
 
 class ToDoAdapter(private val toDoList: List<ToDo>,private val viewModel: ToDoViewModel):
 RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
