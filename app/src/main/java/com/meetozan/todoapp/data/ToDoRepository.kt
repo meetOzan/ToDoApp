@@ -9,7 +9,6 @@ class ToDoRepository(private val toDoDao: ToDoDao) {
     val readDone: LiveData<List<ToDo>> = toDoDao.getDone()
     val readByLevel: LiveData<List<ToDo>> = toDoDao.getByLevel()
 
-
     fun addToDo(toDo: ToDo) {
         toDoDao.insert(toDo)
     }

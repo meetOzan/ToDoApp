@@ -19,13 +19,11 @@ abstract class ToDoDatabase : RoomDatabase() {
                         context,
                         ToDoDatabase::class.java,
                         "todo_db")
+                        .fallbackToDestructiveMigration()
                         .allowMainThreadQueries()
                         .build()
             }
         return instance
         }
     }
-
-
-
 }

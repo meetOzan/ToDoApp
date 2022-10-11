@@ -13,10 +13,18 @@
         <action
             android:id="@+id/action_toDoFragment_to_doneFragment"
             app:destination="@id/doneFragment" />
+        <action
+            android:id="@+id/action_toDoFragment_to_addFragment"
+            app:destination="@id/addFragment" />
     </fragment>
     <fragment
         android:id="@+id/doneFragment"
         android:name="com.meetozan.todoapp.ui.done.DoneFragment"
         android:label="fragment_done"
         tools:layout="@layout/fragment_done" />
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.meetozan.todoapp.ui.todo.AddFragment"
+        android:label="fragment_add"
+        tools:layout="@layout/fragment_add" />
 </navigation>
