@@ -1,19 +1,16 @@
 package com.meetozan.todoapp.ui.todo
 
-import android.app.AlertDialog
-import android.content.Context
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.meetozan.todoapp.R
 import com.meetozan.todoapp.databinding.FragmentToDoBinding
 import com.meetozan.todoapp.ui.viewmodels.ToDoViewModel
-import java.util.*
 
 class ToDoFragment : Fragment() {
 
@@ -33,19 +30,19 @@ class ToDoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = ViewModelProvider(this).get(ToDoViewModel::class.java)
-        rv = binding.rvToDo
+        viewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 
+        rv = binding.rvToDo
         observer(viewModel)
 
         binding.floatingActionButton.setOnClickListener {
             it.findNavController().navigate(R.id.action_toDoFragment_to_addFragment)
         }
-
     }
 
     private fun observer(viewModel: ToDoViewModel) {
         viewModel.readAllData.observe(viewLifecycleOwner) {
+
             adapter = ToDoAdapter(it, viewModel)
             rv.adapter = adapter
         }

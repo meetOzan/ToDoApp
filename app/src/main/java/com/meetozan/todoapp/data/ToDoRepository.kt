@@ -1,15 +1,15 @@
 package com.meetozan.todoapp.data
 
-import androidx.lifecycle.LiveData
+import androidx.annotation.WorkerThread
+import kotlinx.coroutines.flow.Flow
 
 class ToDoRepository(private val toDoDao: ToDoDao) {
 
-    val readAllData: LiveData<List<ToDo>> = toDoDao.getALl()
-    val readUndone: LiveData<List<ToDo>> = toDoDao.getUndone()
-    val readDone: LiveData<List<ToDo>> = toDoDao.getDone()
-    val readByLevel: LiveData<List<ToDo>> = toDoDao.getByLevel()
+    val readAllData: Flow<List<ToDo>> = toDoDao.getALl()
 
-    fun addToDo(toDo: ToDo) {
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun addToDo(toDo: ToDo) {
         toDoDao.insert(toDo)
     }
 

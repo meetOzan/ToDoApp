@@ -7,7 +7,7 @@ import com.meetozan.todoapp.data.ToDo
 import com.meetozan.todoapp.databinding.TodoCardBinding
 import com.meetozan.todoapp.ui.viewmodels.ToDoViewModel
 
-class ToDoAdapter(private val toDoList: List<ToDo>,private val viewModel: ToDoViewModel):
+class ToDoAdapter(private val toDoList: List<ToDo> , private val viewModel: ToDoViewModel):
 RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
 
     class ToDoViewHolder(binding: TodoCardBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -36,7 +36,6 @@ RecyclerView.Adapter<ToDoAdapter.ToDoViewHolder>(){
 
                 viewModel.updateData(updatedToDo)
                 viewModel.readAllData
-
             }
         }
     }

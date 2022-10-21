@@ -24,7 +24,11 @@
         tools:layout="@layout/fragment_done" />
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.meetozan.todoapp.ui.todo.AddFragment"
+        android:name="com.meetozan.todoapp.ui.add.AddFragment"
         android:label="fragment_add"
-        tools:layout="@layout/fragment_add" />
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_toDoFragment"
+            app:destination="@id/toDoFragment" />
+    </fragment>
 </navigation>
