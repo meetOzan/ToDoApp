@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/bottomToDo"
+        android:icon="@drawable/ic_assignmen"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/bottomDone"
+        android:icon="@drawable/ic_done"
+        tools:ignore="MenuTitle" />
+    <item
+        android:id="@+id/bottomUndone"
+        android:icon="@drawable/ic_cancel"
+        tools:ignore="MenuTitle" />
+
+</menu>

@@ -10,12 +10,13 @@
     </data>
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:padding="8dp">
+        android:layout_margin="20dp">
 
        <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/backLayout"
            android:layout_width="match_parent"
            android:layout_height="95dp"
            android:background="@color/black">
@@ -32,10 +33,10 @@
                    android:id="@+id/toDoName"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_margin="24dp"
+                   android:layout_margin="5dp"
                    android:text="@{todoCard.name}"
                    android:textColor="@color/black"
-                   android:textSize="24sp"
+                   android:textSize="36sp"
                    app:layout_constraintStart_toStartOf="parent"
                    app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,32 +44,33 @@
                    android:id="@+id/toDoDate"
                    android:layout_width="wrap_content"
                    android:layout_height="wrap_content"
-                   android:layout_marginStart="72dp"
-                   android:layout_marginTop="24dp"
+                   android:layout_marginTop="2dp"
                    android:text="@{todoCard.date}"
-                   android:textColor="@color/black"
-                   android:textSize="20sp"
+                   android:textColor="@color/material_dynamic_primary30"
+                   android:textSize="24sp"
                    app:layout_constraintStart_toStartOf="@id/toDoName"
-                   app:layout_constraintTop_toTopOf="parent" />
+                   app:layout_constraintTop_toBottomOf="@id/toDoName" />
 
                <TextView
                    android:id="@+id/toDoLevel"
-                   android:layout_width="36dp"
-                   android:layout_height="36dp"
-                   android:layout_marginStart="86dp"
+                   android:layout_width="48dp"
+                   android:layout_height="48dp"
+                   android:layout_marginEnd="24dp"
                    android:layout_marginTop="20dp"
                    android:background="@drawable/ic_circle"
                    android:text="@{todoCard.level}"
-                   android:textAlignment="inherit"
+                   android:textAlignment="center"
+                   android:textSize="30sp"
+                   android:textStyle="bold"
                    android:textColor="@color/black"
-                   app:layout_constraintStart_toStartOf="@id/toDoDate"
+                   app:layout_constraintEnd_toStartOf="@id/toDoCheckBox"
                    app:layout_constraintTop_toTopOf="parent" />
 
                <com.google.android.material.checkbox.MaterialCheckBox
                    android:id="@+id/toDoCheckBox"
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:layout_margin="16dp"
+                   android:layout_width="36dp"
+                   android:layout_height="36dp"
+                   android:layout_margin="8dp"
                    android:checked="@{todoCard.isDone}"
                    app:layout_constraintEnd_toEndOf="parent"
                    app:layout_constraintTop_toTopOf="parent" />

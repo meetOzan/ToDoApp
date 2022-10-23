@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 class ToDoRepository(private val toDoDao: ToDoDao) {
 
     val readAllData: Flow<List<ToDo>> = toDoDao.getALl()
+    val readDoneData : Flow<List<ToDo>> = toDoDao.getDone()
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread

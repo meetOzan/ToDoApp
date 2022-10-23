@@ -11,4 +11,11 @@
     <string name="add">ADD!!</string>
     <string name="level">Level:</string>
     <string name="add_todo">add_todo</string>
+    <string name="todo">ToDo</string>
+    <string name="done">Done</string>
+    <string name="undone">UnDone</string>
+    <string name="update_data">Update Data</string>
+    <string name="enter_your_todo">Enter Your ToDo</string>
+    <string name="delete">Delete</string>
+    <string name="update">Update</string>
 </resources>

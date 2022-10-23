@@ -42,7 +42,6 @@ class ToDoFragment : Fragment() {
 
     private fun observer(viewModel: ToDoViewModel) {
         viewModel.readAllData.observe(viewLifecycleOwner) {
-
             adapter = ToDoAdapter(it, viewModel)
             rv.adapter = adapter
         }

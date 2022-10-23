@@ -1,9 +1,8 @@
-package com.meetozan.todoapp.ui.add
+package com.meetozan.todoapp.ui.todo
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.DialogInterface
-import android.graphics.Color
 import android.graphics.Typeface
 import android.icu.util.Calendar
 import android.icu.util.TimeZone
@@ -15,23 +14,19 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import com.meetozan.todoapp.R
-import com.meetozan.todoapp.data.ToDo
-import com.meetozan.todoapp.databinding.FragmentAddBinding
+import com.meetozan.todoapp.databinding.FragmentUpdateBinding
 import com.meetozan.todoapp.ui.viewmodels.ToDoViewModel
 
-class AddFragment : Fragment() {
+class UpdateFragment : Fragment() {
 
-    private lateinit var binding: FragmentAddBinding
     private lateinit var viewModel: ToDoViewModel
-
+    private lateinit var binding: FragmentUpdateBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentAddBinding.inflate(inflater, container, false)
+        binding = FragmentUpdateBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -42,7 +37,7 @@ class AddFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 
-        val todoName = binding.editTextName.text
+        val todoName = binding.updateName.text
         val todoDate = binding.editTextDate.text
         var todoLevel = binding.txtLevel.text
 
@@ -68,49 +63,24 @@ class AddFragment : Fragment() {
             datePickerDialog.setButton(DialogInterface.BUTTON_NEGATIVE, "CANCEL", datePickerDialog)
 
             datePickerDialog.show()
-
         }
 
-
-
         binding.button.setOnClickListener {
-            binding.backLayout.setBackgroundColor(Color.GREEN)
             binding.txtLevel.setTypeface(null, Typeface.BOLD)
             binding.txtLevel.text = "1"
             todoLevel = "1"
         }
 
         binding.button2.setOnClickListener {
-            binding.backLayout.setBackgroundColor(Color.YELLOW)
             binding.txtLevel.setTypeface(null, Typeface.BOLD)
             binding.txtLevel.text = "2"
             todoLevel = "2"
         }
 
         binding.button3.setOnClickListener {
-            binding.backLayout.setBackgroundColor(Color.RED)
             binding.txtLevel.setTypeface(null, Typeface.BOLD)
             binding.txtLevel.text = "3"
             todoLevel = "3"
-
         }
-
-
-
-        binding.buttonAdd.setOnClickListener {
-
-            val name = todoName.toString()
-            val date = todoDate.toString()
-            val level = todoLevel.toString()
-
-            val tempToDo = ToDo(name = name, date = date, level = level, isDone = false)
-            viewModel.addToDo(tempToDo)
-
-            it.findNavController().navigate(R.id.action_addFragment_to_toDoFragment)
-
-        }
-
     }
-
-
 }

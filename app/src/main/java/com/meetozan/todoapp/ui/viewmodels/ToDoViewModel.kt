@@ -30,4 +30,8 @@ class ToDoViewModel (application: Application) : AndroidViewModel(application) {
         repository.deleteToDo(toDo)
     }
 
+    fun readDone() = viewModelScope.launch {
+        repository.readDoneData
+    }
+
 }

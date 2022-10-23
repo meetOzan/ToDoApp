@@ -16,19 +16,43 @@
         <action
             android:id="@+id/action_toDoFragment_to_addFragment"
             app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_toDoFragment_to_undoneFragment"
+            app:destination="@id/undoneFragment" />
+        <action
+            android:id="@+id/action_toDoFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/doneFragment"
         android:name="com.meetozan.todoapp.ui.done.DoneFragment"
         android:label="fragment_done"
-        tools:layout="@layout/fragment_done" />
+        tools:layout="@layout/fragment_done" >
+        <action
+            android:id="@+id/action_doneFragment_to_undoneFragment"
+            app:destination="@id/undoneFragment" />
+    </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.meetozan.todoapp.ui.add.AddFragment"
+        android:name="com.meetozan.todoapp.ui.todo.add.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_toDoFragment"
+            app:destination="@id/toDoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/undoneFragment"
+        android:name="com.meetozan.todoapp.ui.undone.UndoneFragment"
+        android:label="fragment_undone"
+        tools:layout="@layout/fragment_undone" />
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.meetozan.todoapp.ui.todo.UpdateFragment"
+        android:label="fragment_update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFragment_to_toDoFragment"
             app:destination="@id/toDoFragment" />
     </fragment>
 </navigation>
