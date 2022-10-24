@@ -9,6 +9,7 @@ import android.icu.util.Calendar
 import android.icu.util.TimeZone
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,11 +44,7 @@ class AddFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 
-        val todoName = binding.editTextName.text
-        val todoDate = binding.editTextDate.text
-        var todoLevel = binding.txtLevel.text
-
-        binding.editTextDate.setOnClickListener {
+        binding.updateDate.setOnClickListener {
 
             val calendar = Calendar.getInstance(TimeZone.getTimeZone("UTC"))
 
@@ -57,7 +54,7 @@ class AddFragment : Fragment() {
 
             val datePickerDialog = DatePickerDialog(requireContext(), { _, y, m, d ->
 
-                binding.editTextDate.setText("$y/${m + 1}/$d")
+                binding.updateDate.setText("$y/${m + 1}/$d")
                 println(y)
                 println(m)
                 println(d)
@@ -75,35 +72,36 @@ class AddFragment : Fragment() {
             binding.backLayout.setBackgroundColor(Color.GREEN)
             binding.txtLevel.setTypeface(null, Typeface.BOLD)
             binding.txtLevel.text = "1"
-            todoLevel = "1"
         }
 
         binding.button2.setOnClickListener {
             binding.backLayout.setBackgroundColor(Color.YELLOW)
             binding.txtLevel.setTypeface(null, Typeface.BOLD)
             binding.txtLevel.text = "2"
-            todoLevel = "2"
         }
 
         binding.button3.setOnClickListener {
             binding.backLayout.setBackgroundColor(Color.RED)
             binding.txtLevel.setTypeface(null, Typeface.BOLD)
             binding.txtLevel.text = "3"
-            todoLevel = "3"
         }
 
         binding.buttonAdd.setOnClickListener {
 
-            val name = todoName.toString()
-            val date = todoDate.toString()
-            val level = todoLevel.toString()
+            val name = binding.editTextName.text.toString()
+            val date = binding.updateDate.text.toString()
+            val level = binding.txtLevel.text.toString()
 
+            if(inputCheck(name,date,level)){
             val tempToDo = ToDo(name = name, date = date, level = level, isDone = false)
             viewModel.addToDo(tempToDo)
 
             it.findNavController().navigate(R.id.action_addFragment_to_toDoFragment)
-            Toast.makeText(requireContext(),"ToDo Added",Toast.LENGTH_SHORT).show()
-
+            Toast.makeText(requireContext(),"Succesfully Added",Toast.LENGTH_SHORT).show()
+            }else Toast.makeText(context,"Please fill out all fields",Toast.LENGTH_SHORT).show()
         }
+    }
+    private fun inputCheck(name: String, date: String,level:String): Boolean {
+        return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(date)|| TextUtils.isEmpty(level))
     }
 }

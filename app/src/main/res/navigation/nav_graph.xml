@@ -54,5 +54,8 @@
         <action
             android:id="@+id/action_updateFragment_to_toDoFragment"
             app:destination="@id/toDoFragment" />
+        <argument
+            android:name="currentToDo"
+            app:argType="com.meetozan.todoapp.data.ToDo" />
     </fragment>
 </navigation>
