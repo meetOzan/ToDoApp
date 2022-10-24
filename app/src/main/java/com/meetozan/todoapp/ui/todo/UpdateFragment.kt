@@ -90,6 +90,10 @@ class UpdateFragment : Fragment() {
         binding.buttonUpdate.setOnClickListener {
             updateToDo()
         }
+
+        binding.buttonDelete.setOnClickListener {
+            deleteData()
+        }
     }
 
     private fun updateToDo() {
@@ -105,6 +109,22 @@ class UpdateFragment : Fragment() {
             findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
             Toast.makeText(context, "Succesfully Updated!!", Toast.LENGTH_SHORT).show()
         } else Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun deleteData(){
+        val todoName = binding.updateName.text.toString()
+        val todoDate = binding.updateDate.text.toString()
+        val todoLevel = binding.txtLevel.text.toString()
+        val isDone = args.currentToDo.isDone
+
+        val dataForDelete = ToDo(args.currentToDo.id, todoName, todoDate, todoLevel, isDone)
+
+        viewModel.deleteData(dataForDelete)
+
+
+
+        findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
+        Toast.makeText(context, "Succesfully Deleted!!", Toast.LENGTH_SHORT).show()
     }
 
     private fun inputCheck(name: String, date: String): Boolean {

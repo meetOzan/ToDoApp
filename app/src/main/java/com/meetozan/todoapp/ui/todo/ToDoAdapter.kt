@@ -50,7 +50,6 @@ class ToDoAdapter(private val toDoList: List<ToDo>, private val viewModel: ToDoV
                 val updatedToDo = ToDo(toDoId, toDoName, toDoDate, toDoLevel, false)
 
                 viewModel.updateData(updatedToDo)
-                viewModel.readAllData
                 viewModel.readDone()
             }
         }

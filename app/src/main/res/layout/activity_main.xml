@@ -16,9 +16,11 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
+        android:background="#DCDADA"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         app:menu="@menu/bottom_nav"
+        android:layout_marginBottom="10dp"
         app:itemIconTint="@color/design_default_color_error"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

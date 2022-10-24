@@ -3,16 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/bottomToDo"
+        android:id="@+id/toDoFragment"
         android:icon="@drawable/ic_assignmen"
         tools:ignore="MenuTitle" />
     <item
-        android:id="@+id/bottomDone"
+        android:id="@+id/doneFragment"
         android:icon="@drawable/ic_done"
-        tools:ignore="MenuTitle" />
-    <item
-        android:id="@+id/bottomUndone"
-        android:icon="@drawable/ic_cancel"
         tools:ignore="MenuTitle" />
 
 </menu>

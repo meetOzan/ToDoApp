@@ -55,6 +55,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:1.5.1"
     implementation "androidx.activity:activity-ktx:1.6.0"
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     // Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:2.5.2"
