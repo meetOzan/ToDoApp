@@ -21,5 +21,4 @@ class ToDoRepository(private val toDoDao: ToDoDao) {
     fun updateToDo(toDo: ToDo) {
         toDoDao.updateData(toDo)
     }
-
 }

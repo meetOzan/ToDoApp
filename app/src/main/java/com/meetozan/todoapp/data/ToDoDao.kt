@@ -25,5 +25,4 @@ interface ToDoDao {
 
     @Update
     fun updateData(toDo: ToDo)
-
 }
