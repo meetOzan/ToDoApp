@@ -31,7 +31,6 @@ class DoneFragment : Fragment() {
 
         rv = binding.rvDone
         doneObserver(viewModel)
-
     }
 
     private fun doneObserver(viewModel: DoneViewModel){
@@ -39,7 +38,5 @@ class DoneFragment : Fragment() {
             adapter = DoneAdapter(it, viewModel)
             rv.adapter = adapter
         }
-
     }
-
 }

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">ToDoApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_todo_screen">Add ToDo Screen</string>
     <string name="enter_your_todo_name">Enter ToDo Name</string>
@@ -18,4 +17,6 @@
     <string name="enter_your_todo">Enter Your ToDo</string>
     <string name="delete">Delete</string>
     <string name="update">Update</string>
+    <string name="yes">Yes</string>
+    <string name="dismiss">Dismiss</string>
 </resources>

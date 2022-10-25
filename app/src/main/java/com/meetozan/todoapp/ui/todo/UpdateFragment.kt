@@ -1,6 +1,7 @@
 package com.meetozan.todoapp.ui.todo
 
 import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.content.DialogInterface
 import android.graphics.Typeface
@@ -111,7 +112,7 @@ class UpdateFragment : Fragment() {
         } else Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_SHORT).show()
     }
 
-    private fun deleteData(){
+    private fun deleteData() {
         val todoName = binding.updateName.text.toString()
         val todoDate = binding.updateDate.text.toString()
         val todoLevel = binding.txtLevel.text.toString()
@@ -119,15 +120,27 @@ class UpdateFragment : Fragment() {
 
         val dataForDelete = ToDo(args.currentToDo.id, todoName, todoDate, todoLevel, isDone)
 
-        viewModel.deleteData(dataForDelete)
+        val alertDialogBuilder = AlertDialog.Builder(context)
+        alertDialogBuilder.setTitle("Are You Really Wanted to Delete?")
+            .setMessage("Your ToDo will be deleted")
+            .setPositiveButton(R.string.yes) { _, _ ->
+                viewModel.deleteData(dataForDelete)
 
+                findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
+                Toast.makeText(context, "Succesfully Deleted!!", Toast.LENGTH_SHORT).show()
+            }
+            .setNegativeButton(R.string.dismiss) { dialog, _ ->
+                dialog.dismiss()
+            }
 
-
-        findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
-        Toast.makeText(context, "Succesfully Deleted!!", Toast.LENGTH_SHORT).show()
+        alertDialogBuilder.show()
     }
 
     private fun inputCheck(name: String, date: String): Boolean {
         return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(date))
     }
+
 }
+
+
+

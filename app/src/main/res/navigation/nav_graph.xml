@@ -17,9 +17,6 @@
             android:id="@+id/action_toDoFragment_to_addFragment"
             app:destination="@id/addFragment" />
         <action
-            android:id="@+id/action_toDoFragment_to_undoneFragment"
-            app:destination="@id/undoneFragment" />
-        <action
             android:id="@+id/action_toDoFragment_to_updateFragment"
             app:destination="@id/updateFragment" />
     </fragment>
@@ -29,8 +26,8 @@
         android:label="fragment_done"
         tools:layout="@layout/fragment_done" >
         <action
-            android:id="@+id/action_doneFragment_to_undoneFragment"
-            app:destination="@id/undoneFragment" />
+            android:id="@+id/action_doneFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"
@@ -41,11 +38,6 @@
             android:id="@+id/action_addFragment_to_toDoFragment"
             app:destination="@id/toDoFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/undoneFragment"
-        android:name="com.meetozan.todoapp.ui.undone.UndoneFragment"
-        android:label="fragment_undone"
-        tools:layout="@layout/fragment_undone" />
     <fragment
         android:id="@+id/updateFragment"
         android:name="com.meetozan.todoapp.ui.todo.UpdateFragment"
