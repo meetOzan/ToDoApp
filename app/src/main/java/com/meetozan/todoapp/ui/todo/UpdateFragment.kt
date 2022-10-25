@@ -109,6 +109,7 @@ class UpdateFragment : Fragment() {
 
             findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
             Toast.makeText(context, "Succesfully Updated!!", Toast.LENGTH_SHORT).show()
+
         } else Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_SHORT).show()
     }
 
@@ -127,12 +128,12 @@ class UpdateFragment : Fragment() {
                 viewModel.deleteData(dataForDelete)
 
                 findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
+                activity?.finish()
                 Toast.makeText(context, "Succesfully Deleted!!", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton(R.string.dismiss) { dialog, _ ->
                 dialog.dismiss()
             }
-
         alertDialogBuilder.show()
     }
 

@@ -24,8 +24,4 @@ class DoneViewModel(application: Application) : AndroidViewModel(application) {
     fun updateDone(toDo: ToDo) = viewModelScope.launch {
         repository.updateToDo(toDo)
     }
-
-    fun deleteDone(toDo: ToDo) = viewModelScope.launch {
-        repository.deleteToDo(toDo)
-    }
 }
