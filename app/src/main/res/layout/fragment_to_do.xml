@@ -21,7 +21,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:background="@color/cardview_light_background">
-
                 </androidx.recyclerview.widget.RecyclerView>
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -35,7 +34,5 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="SpeakableTextPresentCheck"
                     android:contentDescription="@string/add_todo" />
-
         </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>

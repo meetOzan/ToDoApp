@@ -45,6 +45,8 @@ class UpdateFragment : Fragment() {
 
         viewModel = ViewModelProvider(this)[ToDoViewModel::class.java]
 
+
+
         binding.updateName.setText(args.currentToDo.name)
         binding.updateDate.setText(args.currentToDo.date)
         binding.txtLevel.setText(args.currentToDo.level).toString()
@@ -108,7 +110,7 @@ class UpdateFragment : Fragment() {
             viewModel.updateData(updatedToDo)
 
             findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
-            Toast.makeText(context, "Succesfully Updated!!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, "Successfully Updated!!", Toast.LENGTH_SHORT).show()
 
         } else Toast.makeText(context, "Please fill out all fields", Toast.LENGTH_SHORT).show()
     }
@@ -128,7 +130,6 @@ class UpdateFragment : Fragment() {
                 viewModel.deleteData(dataForDelete)
 
                 findNavController().navigate(R.id.action_updateFragment_to_toDoFragment)
-                activity?.finish()
                 Toast.makeText(context, "Succesfully Deleted!!", Toast.LENGTH_SHORT).show()
             }
             .setNegativeButton(R.string.dismiss) { dialog, _ ->
@@ -140,7 +141,6 @@ class UpdateFragment : Fragment() {
     private fun inputCheck(name: String, date: String): Boolean {
         return !(TextUtils.isEmpty(name) || TextUtils.isEmpty(date))
     }
-
 }
 
 

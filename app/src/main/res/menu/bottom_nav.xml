@@ -10,5 +10,4 @@
         android:id="@+id/doneFragment"
         android:icon="@drawable/ic_playlist_check"
         tools:ignore="MenuTitle" />
-
 </menu>
